@@ -53,9 +53,14 @@ public class ShopUI : MonoBehaviour
 
         m_OpenList = itemList;
         itemList.Open();
-	}
-	
-	void Update ()
+
+#if UNITY_ANDROID && !UNITY_EDITOR
+//code here
+        CheatCoin();
+#endif
+    }
+
+    void Update ()
     {
         coinCounter.text = PlayerData.instance.coins.ToString();
         premiumCounter.text = PlayerData.instance.premium.ToString();
